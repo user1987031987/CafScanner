@@ -1,0 +1,6 @@
+#Specify the files or directories to ignore to push.
+build/*
+temp/*
+node_modules
+.sass-cache
+refgruntfil.js
