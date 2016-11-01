@@ -1,4 +1,4 @@
-module.exports = function (grunt) {
+module.exports = function(grunt) {
     var serverPath = ""; // We will use this path to paste build all content in sever.
     var devMode = true;
     grunt.initConfig({
@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 
         clean: {
             build: {
-                src: ["build", "temp","stylesheets"]
+                src: ["build", "temp", "stylesheets"]
             }
         },
         copy: {
@@ -52,8 +52,10 @@ module.exports = function (grunt) {
                     "bower_components/angular-animate/angular-animate.js",
                     "bower_components/angular-material/angular-material.js",
                     "bower_components/angular-ui-grid/ui-grid.js",
+                    "bower_components/angular-ui-router/release/angular-ui-router.js",
                     "app/*",
-                    "app/components/main/**/*.js"
+                    "temp/all-templates.js",
+                    "app/components/**/*.js"
                 ],
                 dest: 'temp/<%= pkg.name %>.js',
             },
@@ -91,6 +93,25 @@ module.exports = function (grunt) {
                     cssDir: 'stylesheets'
                 }
             }
+        },
+        ngtemplates: {
+            //The "common" key should match the application module name
+            common: {
+                src: 'app/**/*.html',
+                dest: 'temp/all-templates.js',
+                options: {
+                    htmlmin: {
+                        collapseBooleanAttributes: true,
+                        collapseWhitespace: true,
+                        removeAttributeQuotes: true,
+                        removeComments: true, // Only if you don't use comment directives!
+                        removeEmptyAttributes: true,
+                        removeRedundantAttributes: true,
+                        removeScriptTypeAttributes: true,
+                        removeStyleLinkTypeAttributes: true
+                    }
+                }
+            }
         }
     });
 
@@ -100,6 +121,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-angular-templates');
 
     var taskArray = undefined;
     if (devMode) {
@@ -107,6 +129,7 @@ module.exports = function (grunt) {
             "clean:build",
             'copy:build',
             "compass",
+            "ngtemplates",
             'concat',
             'copy:devModedeploy'
         ];
@@ -115,6 +138,7 @@ module.exports = function (grunt) {
             "clean:build",
             'copy:build',
             "compass",
+            "ngtemplates",
             'concat',
             'uglify',
             'cssmin'
