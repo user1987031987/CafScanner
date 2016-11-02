@@ -1,5 +1,43 @@
 <div class='login'>
     <md-toolbar>
-        <span> Caf Scanner</span>
+        <span>{{appName}}</span>
     </md-toolbar>
+    <div class="loginContainer md-whiteframe-20dp">
+        <div class='header md-toolbar-tools'>
+            Login
+        </div>
+        <div layout-align="space-between center" class='marginLR20'>
+            <div layout='row'>
+                <md-input-container class="md-block" flex-gt-sm="" md-no-asterisk>
+                    <label>User Name</label>
+                    <input type="text" ng-model="userName" name='userName'>
+                </md-input-container>
+            </div>
+            <div layout='row'>
+                <md-input-container class="md-block" flex-gt-sm="" md-no-asterisk>
+                    <label>Password</label>
+                    <input type="password" ng-model="password" name='password'>
+                </md-input-container>
+            </div>
+            <div layout='row'>
+                <div layout='column'>
+                    <md-button class="md-raised md-primary">Sign In</md-button>
+                </div>
+                <div layout='column'>
+                    <md-button class="md-raised">Clear</md-button>
+                </div>
+            </div>
+            <div layout='row'>
+                <div layout='column' layout-margin flex='50'>
+                    <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+                        Remember Me
+                    </md-checkbox>
+                </div>
+                <div layout='column' flex='50'>
+                    <md-button md-no-ink class="md-primary">Change Password</md-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>

@@ -1,1 +1,22 @@
-.login {}
+.login {
+    .loginContainer {
+        position: fixed;
+        top: 40%;
+        left: 45%;
+        width: 35em;
+        height: 30em;
+        margin-top: -9em;
+        margin-left: -15em;
+        border: 1px solid #ccc;
+        // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+    .header {
+        height: 20%;
+        background-color: $primary-color;
+        color: #fff;
+    }
+    .marginLR20 {
+        margin: 0px 20px;
+        margin-top: 10px
+    }
+}

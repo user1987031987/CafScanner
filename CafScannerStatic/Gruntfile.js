@@ -53,6 +53,7 @@ module.exports = function(grunt) {
                     "bower_components/angular-material/angular-material.js",
                     "bower_components/angular-ui-grid/ui-grid.js",
                     "bower_components/angular-ui-router/release/angular-ui-router.js",
+                    "app/app.js",
                     "app/*",
                     "temp/all-templates.js",
                     "app/components/**/*.js"

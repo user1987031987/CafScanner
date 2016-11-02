@@ -9632,3 +9632,25 @@ body {
     left: 100%;
   }
 }
+/* line 2, ../sass/_login.scss */
+.login .loginContainer {
+  position: fixed;
+  top: 40%;
+  left: 45%;
+  width: 35em;
+  height: 30em;
+  margin-top: -9em;
+  margin-left: -15em;
+  border: 1px solid #ccc;
+}
+/* line 13, ../sass/_login.scss */
+.login .header {
+  height: 20%;
+  background-color: #3f51b5;
+  color: #fff;
+}
+/* line 18, ../sass/_login.scss */
+.login .marginLR20 {
+  margin: 0px 20px;
+  margin-top: 10px;
+}
