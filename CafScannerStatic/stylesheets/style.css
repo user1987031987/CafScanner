@@ -9567,6 +9567,11 @@ body {
   font-family: Roboto, Helvetica Neue, sans-serif !important;
 }
 
+/* line 15, ../sass/_common.scss */
+.my-icon svg {
+  fill: #757575;
+}
+
 /* line 1, ../sass/_loader.scss */
 .loader {
   width: 100%;

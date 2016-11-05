@@ -13,7 +13,7 @@ module.exports = function(grunt) {
             build: {
                 files: [{
                     expand: true,
-                    src: ["resources/images", "index.html"],
+                    src: ["resources/icons", "resources/icons/*.*", "index.html"],
                     dest: 'build/'
                 }, {
                     expand: true,
@@ -50,6 +50,7 @@ module.exports = function(grunt) {
                     "bower_components/angular-messages/angular-messages.js",
                     "bower_components/angular-aria/angular-aria.js",
                     "bower_components/angular-animate/angular-animate.js",
+                    "bower_components/svg-assets-cache.js/svg-assets-cache.js",
                     "bower_components/angular-material/angular-material.js",
                     "bower_components/angular-ui-grid/ui-grid.js",
                     "bower_components/angular-ui-router/release/angular-ui-router.js",
@@ -98,7 +99,7 @@ module.exports = function(grunt) {
         ngtemplates: {
             //The "common" key should match the application module name
             common: {
-                src: 'app/**/*.html',
+                src: ['app/**/*.html', 'resources/icons/*.svg'],
                 dest: 'temp/all-templates.js',
                 options: {
                     htmlmin: {
@@ -113,6 +114,37 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+        watch: {
+            css: {
+                files: ['sass/*.scss', 'app/**/*.html', "index.html"],
+                tasks: [
+                    "clean:build",
+                    'copy:build',
+                    "compass",
+                    "ngtemplates",
+                    'concat',
+                    'copy:devModedeploy', 'reload'
+                ]
+            },
+            js: {
+                files: ['app/**/*.js'],
+                tasks: [
+                    "clean:build",
+                    'copy:build',
+                    "compass",
+                    "ngtemplates",
+                    'concat',
+                    'copy:devModedeploy', 'reload'
+                ]
+            }
+        },
+        reload: {
+            current: {
+                options: {
+                    match: /Caf Scanner/
+                }
+            }
         }
     });
 
@@ -124,6 +156,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-angular-templates');
 
+    //Below two tasks is to watch any file changes and reload the chrome current tab;
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-reload-chrome');
     var taskArray = undefined;
     if (devMode) {
         taskArray = [

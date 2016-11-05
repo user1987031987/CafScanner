@@ -6,9 +6,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
     <link rel="stylesheet" href="resources/cafscanner.css">
     <script src='cafscanner.js'></script>
+    <title> Caf Scanner</title>
 </head>
 
-<body ng-controller='MainCtrl'>
+<body ng-controller='MainCtrl' ng-cloak>
+    <md-toolbar class='md-whiteframe-8dp'>
+        <div class='md-toolbar-tools'>
+            <span>{{appName}}</span>
+            <span flex></span>
+            <span>  
+               <div ng-include="'app/components/common/userActions.html'" ></div>
+            </span>
+        </div>
+    </md-toolbar>
     <div class='loader ' ng-if='loadMask '>
         <div class="linear">
         </div>

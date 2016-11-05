@@ -1,0 +1,29 @@
+<md-menu-bar>
+    <md-menu>
+        <md-button ng-click="$mdOpenMenu($event)" aria-label="User Settings" class="md-icon-button">
+            <md-icon md-menu-origin md-svg-icon="social:person"></md-icon>
+        </md-button>
+        <md-menu-content width="2" height='150'>
+            <md-menu-item>
+                <md-button ng-click="">
+                    <md-icon md-svg-icon="account-box"></md-icon>
+                    My Profile
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button>
+                    <md-icon class='my-icon' md-svg-icon="img/icons/ic_build_24px.svg"></md-icon>
+                    Change Password
+                </md-button>
+            </md-menu-item>
+            <md-menu-divider></md-menu-divider>
+            <md-menu-item>
+                <md-button>
+                    <md-icon class='my-icon' md-svg-icon="resources/icons/ic_assignment_return_black_24px.svg"></md-icon>
+                    Log out
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+</md-menu-bar>
