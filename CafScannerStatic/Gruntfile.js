@@ -28,14 +28,12 @@ module.exports = function(grunt) {
                     expand: true,
                     flatten: true,
                     src: ['temp/cafscanner.css'],
-                    dest: 'build/resources',
-                    filter: 'isFile'
+                    dest: 'build/resources'
                 }, {
                     expand: true,
                     flatten: true,
                     src: ['temp/cafscanner.js'],
-                    dest: 'build/',
-                    filter: 'isFile'
+                    dest: 'build/'
                 }]
             }
         },
